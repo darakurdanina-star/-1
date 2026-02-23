@@ -134,14 +134,13 @@
             white-space: nowrap;
         }
 
-        /* Персонажи */
+        /* Персонажи с картинками */
         .character {
             position: absolute;
-            bottom: 80px;
-            font-size: 80px;
+            bottom: 60px;
             opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+            transition: opacity 0.5s ease;
+            z-index: 10;
         }
 
         .character.visible {
@@ -155,22 +154,33 @@
             100% { transform: scale(1) translateY(0); opacity: 1; }
         }
 
+        .character img {
+            width: 100px;
+            height: auto;
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+        }
+
         /* Позиции персонажей */
-        #ded { left: 650px; z-index: 10; }
-        #babka { left: 570px; z-index: 9; }
-        #vnuchka { left: 490px; z-index: 8; }
-        #dog { left: 410px; z-index: 7; }
-        #cat { left: 330px; z-index: 6; }
-        #mouse { left: 250px; z-index: 5; }
+        #ded { left: 680px; }
+        #babka { left: 590px; }
+        #vnuchka { left: 500px; }
+        #dog { left: 410px; }
+        #cat { left: 320px; }
+        #mouse { left: 230px; }
 
         /* Репка */
         .turnip {
             position: absolute;
-            bottom: 60px;
-            left: 720px;
-            font-size: 70px;
+            bottom: 50px;
+            left: 750px;
+            width: 80px;
             z-index: 1;
             animation: turnipGrow 0.5s ease;
+        }
+
+        .turnip img {
+            width: 100%;
+            height: auto;
         }
 
         @keyframes turnipGrow {
@@ -248,16 +258,30 @@
         <div class="title">РЕПКА</div>
         <div class="subtitle">Помоги деду вырастить репку</div>
 
-        <!-- Персонажи (эмодзи как placeholder) -->
-        <div class="character" id="mouse">🐭</div>
-        <div class="character" id="cat">🐱</div>
-        <div class="character" id="dog">🐶</div>
-        <div class="character" id="vnuchka">👧</div>
-        <div class="character" id="babka">👵</div>
-        <div class="character" id="ded">👴</div>
+        <!-- Персонажи с КАРТИНКАМИ -->
+        <div class="character" id="mouse">
+            <img src="mouse.png.png" alt="Мышка">
+        </div>
+        <div class="character" id="cat">
+            <img src="cat.png.png" alt="Кошка">
+        </div>
+        <div class="character" id="dog">
+            <img src="dog.png.png" alt="Собака">
+        </div>
+        <div class="character" id="vnuchka">
+            <img src="vnucka.png.png" alt="Внучка">
+        </div>
+        <div class="character" id="babka">
+            <img src="babka.png.png" alt="Бабка">
+        </div>
+        <div class="character" id="ded">
+            <img src="ded.png.png" alt="Дед">
+        </div>
 
-        <!-- Репка -->
-        <div class="turnip">🥕</div>
+        <!-- Репка (можно добавить картинку) -->
+        <div class="turnip">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🥕%3C/text%3E%3C/svg%3E" alt="Репка">
+        </div>
 
         <!-- Кнопка -->
         <button class="start-button" onclick="nextScene()">В сказку →</button>
@@ -318,16 +342,9 @@
                 // window.location.href = 'scene2.html';
             }, 500);
         }
-
-        // Для замены эмодзи на картинки раскомментируйте и укажите свои пути:
-        /*
-        window.addEventListener('load', function() {
-            document.getElementById('ded').innerHTML = '<img src="ded.png" style="width:100px;height:auto;">';
-            document.getElementById('babka').innerHTML = '<img src="babka.png" style="width:100px;height:auto;">';
-            // и так далее для всех персонажей
-        });
-        */
     </script>
 
 </body>
 </html>
+   
+
