@@ -134,10 +134,10 @@
             white-space: nowrap;
         }
 
-        /* Персонажи с картинками */
+        /* Персонажи с КАРТИНКАМИ */
         .character {
             position: absolute;
-            bottom: 60px;
+            bottom: 120px; /* Подняли героев выше */
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: 10;
@@ -155,44 +155,47 @@
         }
 
         .character img {
-            width: 100px;
             height: auto;
             filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
         }
 
-        /* Позиции персонажей */
-        #ded { left: 680px; }
-        #babka { left: 590px; }
-        #vnuchka { left: 500px; }
-        #dog { left: 410px; }
-        #cat { left: 320px; }
-        #mouse { left: 230px; }
-
-        /* Репка */
-        .turnip {
-            position: absolute;
-            bottom: 50px;
-            left: 750px;
-            width: 80px;
-            z-index: 1;
-            animation: turnipGrow 0.5s ease;
+        /* РАЗНЫЙ РАЗМЕР для каждого героя (по убыванию) */
+        #ded img {
+            width: 140px; /* Самый высокий */
         }
 
-        .turnip img {
-            width: 100%;
-            height: auto;
+        #babka img {
+            width: 125px; /* Чуть меньше */
         }
 
-        @keyframes turnipGrow {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
+        #vnuchka img {
+            width: 110px;
         }
 
-        /* Кнопка */
+        #dog img {
+            width: 100px;
+        }
+
+        #cat img {
+            width: 90px;
+        }
+
+        #mouse img {
+            width: 80px; /* Самый маленький */
+        }
+
+        /* Позиции персонажей (слева направо) */
+        #mouse { left: 50px; }
+        #cat { left: 140px; }
+        #dog { left: 240px; }
+        #vnuchka { left: 350px; }
+        #babka { left: 470px; }
+        #ded { left: 600px; }
+
+        /* Кнопка - НИЖЕ героев */
         .start-button {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px; /* Опущена ниже */
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -258,7 +261,7 @@
         <div class="title">РЕПКА</div>
         <div class="subtitle">Помоги деду вырастить репку</div>
 
-        <!-- Персонажи с КАРТИНКАМИ -->
+        <!-- Персонажи с КАРТИНКАМИ (без моркови) -->
         <div class="character" id="mouse">
             <img src="mouse.png.png" alt="Мышка">
         </div>
@@ -278,12 +281,7 @@
             <img src="ded.png.png" alt="Дед">
         </div>
 
-        <!-- Репка (можно добавить картинку) -->
-        <div class="turnip">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🥕%3C/text%3E%3C/svg%3E" alt="Репка">
-        </div>
-
-        <!-- Кнопка -->
+        <!-- Кнопка НИЖЕ героев -->
         <button class="start-button" onclick="nextScene()">В сказку →</button>
     </div>
 
@@ -346,5 +344,3 @@
 
 </body>
 </html>
-   
-
