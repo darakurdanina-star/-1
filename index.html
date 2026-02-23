@@ -19,7 +19,6 @@
             touch-action: none;
         }
 
-        /* Сообщение о повороте экрана */
         .rotate-message {
             display: none;
             position: fixed;
@@ -47,7 +46,6 @@
             display: block;
         }
 
-        /* Игровой контейнер */
         #game-container {
             width: 812px;
             height: 375px;
@@ -59,20 +57,18 @@
             box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
-        /* Солнце */
         .sun {
             position: absolute;
-            top: 20px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
+            top: 15px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
             background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
             border-radius: 50%;
-            box-shadow: 0 0 30px #FFD700;
+            box-shadow: 0 0 25px #FFD700;
             z-index: 1;
         }
 
-        /* Облака */
         .cloud {
             position: absolute;
             background: white;
@@ -82,25 +78,25 @@
         }
 
         .cloud1 {
-            width: 100px;
-            height: 40px;
-            top: 40px;
-            left: 80px;
+            width: 90px;
+            height: 35px;
+            top: 30px;
+            left: 70px;
         }
 
         .cloud2 {
-            width: 80px;
-            height: 35px;
-            top: 70px;
-            left: 550px;
+            width: 70px;
+            height: 30px;
+            top: 50px;
+            left: 580px;
         }
 
-        /* Забор - НА ЗАДНЕМ ПЛАНЕ */
+        /* Забор */
         .fence {
             position: absolute;
-            bottom: 150px;
+            bottom: 120px;
             width: 100%;
-            height: 70px;
+            height: 60px;
             z-index: 5;
             opacity: 0.7;
         }
@@ -109,7 +105,7 @@
             position: absolute;
             bottom: 0;
             width: 10px;
-            height: 50px;
+            height: 45px;
             background: linear-gradient(to right, #DEB887 0%, #D2691E 50%, #8B4513 100%);
             border-radius: 2px 2px 0 0;
         }
@@ -121,52 +117,51 @@
             background: linear-gradient(to bottom, #DEB887 0%, #D2691E 100%);
         }
 
-        .fence-rail1 { bottom: 30px; }
-        .fence-rail2 { bottom: 10px; }
+        .fence-rail1 { bottom: 25px; }
+        .fence-rail2 { bottom: 5px; }
 
-        /* Текст - ВЫСОКО */
+        /* ТЕКСТ И КНОПКИ - ПОДНЯТЫ ВВЕРХ */
         .title {
             position: absolute;
-            top: 120px;
+            top: 15px; /* БЫЛО 120px, СТАЛО 15px */
             left: 50%;
             transform: translateX(-50%);
-            font-size: 52px;
+            font-size: 48px;
             font-weight: bold;
             color: #FF6B35;
-            text-shadow: 3px 3px 0 #FFF, 5px 5px 0 rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 0 #FFF, 4px 4px 0 rgba(0,0,0,0.2);
             z-index: 100;
             white-space: nowrap;
         }
 
         .subtitle {
             position: absolute;
-            top: 180px;
+            top: 70px; /* БЫЛО 180px, СТАЛО 70px */
             left: 50%;
             transform: translateX(-50%);
-            font-size: 20px;
+            font-size: 18px;
             color: #2C3E50;
             text-align: center;
             background: rgba(255,255,255,0.95);
-            padding: 8px 20px;
-            border-radius: 15px;
+            padding: 6px 18px;
+            border-radius: 12px;
             z-index: 100;
             white-space: nowrap;
         }
 
-        /* Кнопка - ВЫСОКО, под текстом */
         .start-button {
             position: absolute;
-            top: 220px;
+            top: 110px; /* БЫЛО 220px, СТАЛО 110px */
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(to bottom, #DEB887 0%, #D2691E 50%, #8B4513 100%);
             color: #4A3728;
             border: 3px solid #654321;
-            padding: 12px 50px;
-            font-size: 24px;
+            padding: 10px 45px;
+            font-size: 22px;
             border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 5px 0 #654321, 0 8px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 0 #654321, 0 7px 12px rgba(0,0,0,0.3);
             transition: all 0.1s ease;
             font-family: inherit;
             font-weight: bold;
@@ -174,24 +169,22 @@
         }
 
         .start-button:active {
-            transform: translateX(-50%) translateY(3px);
-            box-shadow: 0 2px 0 #654321, 0 4px 10px rgba(0,0,0,0.3);
+            transform: translateX(-50%) translateY(2px);
+            box-shadow: 0 2px 0 #654321, 0 3px 8px rgba(0,0,0,0.3);
         }
 
-        /* Трава */
         .grass {
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 150px;
+            height: 120px;
             background: linear-gradient(to bottom, #90EE90 0%, #7CFC00 40%, #32CD32 100%);
             z-index: 4;
         }
 
-        /* Персонажи - НА ПЕРЕДНЕМ ПЛАНЕ */
         .character {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px; /* Опустила чуть ниже */
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: 20;
@@ -213,57 +206,20 @@
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
         }
 
-        /* РАЗНЫЙ РАЗМЕР */
-        #ded img {
-            width: 120px;
-        }
+        #ded img { width: 115px; }
+        #babka img { width: 100px; }
+        #vnuchka img { width: 85px; }
+        #dog img { width: 80px; }
+        #cat img { width: 70px; }
+        #mouse img { width: 60px; }
 
-        #babka img {
-            width: 105px;
-        }
+        #mouse { left: 50px; }
+        #cat { left: 125px; }
+        #dog { left: 210px; }
+        #vnuchka { left: 305px; }
+        #babka { left: 410px; }
+        #ded { left: 530px; }
 
-        #vnuchka img {
-            width: 90px;
-        }
-
-        #dog img {
-            width: 85px;
-        }
-
-        #cat img {
-            width: 75px;
-        }
-
-        #mouse img {
-            width: 65px;
-        }
-
-        /* Позиции персонажей - РАЗНЫЕ по высоте */
-        #mouse { 
-            left: 60px; 
-        }
-        
-        #cat { 
-            left: 140px; 
-        }
-        
-        #dog { 
-            left: 230px; 
-        }
-        
-        #vnuchka { 
-            left: 330px; 
-        }
-        
-        #babka { 
-            left: 440px; 
-        }
-        
-        #ded { 
-            left: 560px; 
-        }
-
-        /* Масштабирование */
         @media screen and (max-width: 812px) {
             #game-container {
                 transform: translateY(-50%) scale(0.8);
@@ -291,23 +247,18 @@
     </div>
 
     <div id="game-container">
-        <!-- НЕБО -->
         <div class="sun"></div>
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
 
-        <!-- ТЕКСТ И КНОПКА (ВЫСОКО) -->
+        <!-- ВСЁ ПОДНЯТО ВВЕРХ -->
         <div class="title">РЕПКА</div>
         <div class="subtitle">Помоги деду вырастить репку</div>
         <button class="start-button" onclick="nextScene()">В СКАЗКУ</button>
 
-        <!-- ЗАДНИЙ ПЛАН: Забор -->
         <div class="fence" id="fence"></div>
-
-        <!-- ПЕРЕДНИЙ ПЛАН: Трава -->
         <div class="grass"></div>
 
-        <!-- ПЕРСОНАЖИ (САМЫЙ ВЕРХНИЙ СЛОЙ) -->
         <div class="character" id="mouse">
             <img src="mouse.png.png" alt="Мышка">
         </div>
@@ -329,15 +280,14 @@
     </div>
 
     <script>
-        // Создание забора
         function createFence() {
             const fence = document.getElementById('fence');
-            const postCount = 16;
+            const postCount = 18;
             
             for (let i = 0; i < postCount; i++) {
                 const post = document.createElement('div');
                 post.className = 'fence-post';
-                post.style.left = (i * 52) + 'px';
+                post.style.left = (i * 46) + 'px';
                 fence.appendChild(post);
             }
             
