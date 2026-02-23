@@ -91,7 +91,6 @@
             left: 580px;
         }
 
-        /* Забор */
         .fence {
             position: absolute;
             bottom: 120px;
@@ -120,10 +119,9 @@
         .fence-rail1 { bottom: 25px; }
         .fence-rail2 { bottom: 5px; }
 
-        /* ТЕКСТ И КНОПКИ - ПОДНЯТЫ ВВЕРХ */
         .title {
             position: absolute;
-            top: 15px; /* БЫЛО 120px, СТАЛО 15px */
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 48px;
@@ -136,7 +134,7 @@
 
         .subtitle {
             position: absolute;
-            top: 70px; /* БЫЛО 180px, СТАЛО 70px */
+            top: 70px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 18px;
@@ -151,7 +149,7 @@
 
         .start-button {
             position: absolute;
-            top: 110px; /* БЫЛО 220px, СТАЛО 110px */
+            top: 110px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(to bottom, #DEB887 0%, #D2691E 50%, #8B4513 100%);
@@ -184,7 +182,7 @@
 
         .character {
             position: absolute;
-            bottom: 15px; /* Опустила чуть ниже */
+            bottom: 5px;
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: 20;
@@ -206,19 +204,21 @@
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
         }
 
-        #ded img { width: 115px; }
-        #babka img { width: 100px; }
-        #vnuchka img { width: 85px; }
-        #dog img { width: 80px; }
-        #cat img { width: 70px; }
-        #mouse img { width: 60px; }
+        /* БОЛЬШИЕ РАЗМЕРЫ ПЕРСОНАЖЕЙ */
+        #ded img { width: 200px; }
+        #babka img { width: 170px; }
+        #vnuchka img { width: 145px; }
+        #dog img { width: 135px; }
+        #cat img { width: 120px; }
+        #mouse img { width: 105px; }
 
-        #mouse { left: 50px; }
-        #cat { left: 125px; }
-        #dog { left: 210px; }
-        #vnuchka { left: 305px; }
-        #babka { left: 410px; }
-        #ded { left: 530px; }
+        /* Новые позиции для больших персонажей */
+        #mouse { left: 20px; }
+        #cat { left: 130px; }
+        #dog { left: 255px; }
+        #vnuchka { left: 395px; }
+        #babka { left: 545px; }
+        #ded { left: 720px; }
 
         @media screen and (max-width: 812px) {
             #game-container {
@@ -251,7 +251,6 @@
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
 
-        <!-- ВСЁ ПОДНЯТО ВВЕРХ -->
         <div class="title">РЕПКА</div>
         <div class="subtitle">Помоги деду вырастить репку</div>
         <button class="start-button" onclick="nextScene()">В СКАЗКУ</button>
