@@ -54,90 +54,214 @@
             position: relative;
             margin: 50vh auto;
             transform: translateY(-50%);
-            background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 60%, #90EE90 60%, #228B22 100%);
+            background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 50%, #90EE90 50%, #7CFC00 100%);
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
-        /* Фоновые элементы */
+        /* Солнце */
         .sun {
             position: absolute;
-            top: 20px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
+            top: 30px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
             background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
             border-radius: 50%;
-            box-shadow: 0 0 30px #FFD700;
-            animation: sunPulse 3s ease-in-out infinite;
+            box-shadow: 0 0 40px #FFD700;
+            z-index: 1;
         }
 
-        @keyframes sunPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
+        /* Облака */
         .cloud {
             position: absolute;
             background: white;
             border-radius: 100px;
-            opacity: 0.8;
+            opacity: 0.9;
+            z-index: 2;
         }
 
         .cloud1 {
-            width: 100px;
-            height: 40px;
-            top: 40px;
-            left: -100px;
-            animation: cloudMove 20s linear infinite;
+            width: 120px;
+            height: 50px;
+            top: 50px;
+            left: 100px;
+            animation: cloudMove 30s linear infinite;
         }
 
         .cloud2 {
-            width: 80px;
-            height: 35px;
+            width: 100px;
+            height: 40px;
             top: 80px;
-            left: -80px;
+            left: 600px;
+            animation: cloudMove 35s linear infinite 10s;
+        }
+
+        .cloud3 {
+            width: 90px;
+            height: 35px;
+            top: 40px;
+            left: 350px;
             animation: cloudMove 25s linear infinite 5s;
         }
 
         @keyframes cloudMove {
-            from { left: -100px; }
-            to { left: 812px; }
+            from { transform: translateX(-150px); }
+            to { transform: translateX(850px); }
+        }
+
+        /* Птички */
+        .bird {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            z-index: 3;
+            opacity: 0.7;
+        }
+
+        .bird::before, .bird::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 8px;
+            border-top: 3px solid #4a4a4a;
+            border-right: 3px solid #4a4a4a;
+            top: 5px;
+        }
+
+        .bird::before {
+            left: 0;
+            transform: rotate(-45deg);
+        }
+
+        .bird::after {
+            right: 0;
+            transform: rotate(45deg);
+        }
+
+        .bird1 { top: 60px; left: 150px; animation: fly 15s linear infinite; }
+        .bird2 { top: 90px; left: 250px; animation: fly 18s linear infinite 3s; }
+        .bird3 { top: 50px; left: 500px; animation: fly 20s linear infinite 5s; }
+        .bird4 { top: 100px; left: 650px; animation: fly 17s linear infinite 7s; }
+
+        @keyframes fly {
+            from { transform: translateX(-50px) translateY(0); }
+            25% { transform: translateX(200px) translateY(-10px); }
+            50% { transform: translateX(450px) translateY(5px); }
+            75% { transform: translateX(650px) translateY(-5px); }
+            to { transform: translateX(900px) translateY(0); }
+        }
+
+        /* Забор */
+        .fence {
+            position: absolute;
+            bottom: 140px;
+            width: 100%;
+            height: 80px;
+            z-index: 5;
+            opacity: 0.8;
+        }
+
+        .fence-post {
+            position: absolute;
+            bottom: 0;
+            width: 12px;
+            height: 60px;
+            background: linear-gradient(to right, #DEB887 0%, #D2691E 50%, #8B4513 100%);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .fence-rail {
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to bottom, #DEB887 0%, #D2691E 100%);
+        }
+
+        .fence-rail1 { bottom: 40px; }
+        .fence-rail2 { bottom: 20px; }
+
+        /* Трава */
+        .grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom, #90EE90 0%, #7CFC00 30%, #32CD32 100%);
+            z-index: 4;
+        }
+
+        .grass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 100, 0, 0.1) 10px,
+                rgba(0, 100, 0, 0.1) 20px
+            );
         }
 
         /* Текст */
         .title {
             position: absolute;
-            top: 20px;
+            top: 140px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 64px;
+            font-size: 56px;
             font-weight: bold;
-            color: #FF6B35;
-            text-shadow: 3px 3px 0 #FFF, 6px 6px 0 rgba(0,0,0,0.2);
+            color: #4A3728;
+            text-shadow: 2px 2px 0 #FFF, 4px 4px 0 rgba(0,0,0,0.1);
             z-index: 100;
             white-space: nowrap;
         }
 
         .subtitle {
             position: absolute;
-            top: 95px;
+            top: 205px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 24px;
-            color: #2C3E50;
+            font-size: 22px;
+            color: #4A3728;
             text-align: center;
-            background: rgba(255,255,255,0.9);
-            padding: 10px 20px;
-            border-radius: 15px;
             z-index: 100;
             white-space: nowrap;
         }
 
-        /* Персонажи с КАРТИНКАМИ */
+        /* Кнопка-табличка (деревянная) */
+        .start-button {
+            position: absolute;
+            top: 240px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to bottom, #DEB887 0%, #D2691E 50%, #8B4513 100%);
+            color: #4A3728;
+            border: 4px solid #654321;
+            padding: 15px 60px;
+            font-size: 26px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #654321, 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.1s ease;
+            font-family: inherit;
+            font-weight: bold;
+            z-index: 100;
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+        }
+
+        .start-button:active {
+            transform: translateX(-50%) translateY(4px);
+            box-shadow: 0 2px 0 #654321, 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Персонажи */
         .character {
             position: absolute;
-            bottom: 120px; /* Подняли героев выше */
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: 10;
@@ -156,70 +280,63 @@
 
         .character img {
             height: auto;
-            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
         }
 
-        /* РАЗНЫЙ РАЗМЕР для каждого героя (по убыванию) */
+        /* РАЗНЫЙ РАЗМЕР для каждого героя */
         #ded img {
-            width: 140px; /* Самый высокий */
+            width: 130px;
         }
 
         #babka img {
-            width: 125px; /* Чуть меньше */
+            width: 115px;
         }
 
         #vnuchka img {
-            width: 110px;
-        }
-
-        #dog img {
             width: 100px;
         }
 
-        #cat img {
+        #dog img {
             width: 90px;
         }
 
+        #cat img {
+            width: 80px;
+        }
+
         #mouse img {
-            width: 80px; /* Самый маленький */
+            width: 70px;
         }
 
-        /* Позиции персонажей (слева направо) */
-        #mouse { left: 50px; }
-        #cat { left: 140px; }
-        #dog { left: 240px; }
-        #vnuchka { left: 350px; }
-        #babka { left: 470px; }
-        #ded { left: 600px; }
-
-        /* Кнопка - НИЖЕ героев */
-        .start-button {
-            position: absolute;
-            bottom: 20px; /* Опущена ниже */
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 50px;
-            font-size: 28px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            font-family: inherit;
-            font-weight: bold;
-            z-index: 100;
+        /* ЕСТЕСТВЕННОЕ расположение (не в линию) */
+        #mouse { 
+            left: 80px; 
+            bottom: 40px;
         }
-
-        .start-button:hover {
-            transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 9px 25px rgba(102, 126, 234, 0.6);
+        
+        #cat { 
+            left: 160px; 
+            bottom: 50px;
         }
-
-        .start-button:active {
-            transform: translateX(-50%) translateY(-1px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        
+        #dog { 
+            left: 260px; 
+            bottom: 45px;
+        }
+        
+        #vnuchka { 
+            left: 370px; 
+            bottom: 55px;
+        }
+        
+        #babka { 
+            left: 480px; 
+            bottom: 50px;
+        }
+        
+        #ded { 
+            left: 600px; 
+            bottom: 60px;
         }
 
         /* Масштабирование для мобильных */
@@ -252,16 +369,32 @@
 
     <!-- Игровой контейнер -->
     <div id="game-container">
-        <!-- Фон -->
+        <!-- Небо и солнце -->
         <div class="sun"></div>
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        
+        <!-- Птички -->
+        <div class="bird bird1"></div>
+        <div class="bird bird2"></div>
+        <div class="bird bird3"></div>
+        <div class="bird bird4"></div>
 
         <!-- Текст -->
         <div class="title">РЕПКА</div>
         <div class="subtitle">Помоги деду вырастить репку</div>
 
-        <!-- Персонажи с КАРТИНКАМИ (без моркови) -->
+        <!-- Кнопка-табличка -->
+        <button class="start-button" onclick="nextScene()">В СКАЗКУ</button>
+
+        <!-- Трава -->
+        <div class="grass"></div>
+
+        <!-- Забор (сзади персонажей) -->
+        <div class="fence" id="fence"></div>
+
+        <!-- Персонажи -->
         <div class="character" id="mouse">
             <img src="mouse.png.png" alt="Мышка">
         </div>
@@ -280,30 +413,53 @@
         <div class="character" id="ded">
             <img src="ded.png.png" alt="Дед">
         </div>
-
-        <!-- Кнопка НИЖЕ героев -->
-        <button class="start-button" onclick="nextScene()">В сказку →</button>
     </div>
 
     <script>
+        // Создание забора
+        function createFence() {
+            const fence = document.getElementById('fence');
+            const fenceWidth = 812;
+            const postCount = Math.ceil(fenceWidth / 60);
+            
+            for (let i = 0; i < postCount; i++) {
+                const post = document.createElement('div');
+                post.className = 'fence-post';
+                post.style.left = (i * 60) + 'px';
+                // Разная высота для естественности
+                const heightVariation = Math.random() * 20 - 10;
+                post.style.height = (60 + heightVariation) + 'px';
+                fence.appendChild(post);
+            }
+            
+            // Добавляем перекладины
+            const rail1 = document.createElement('div');
+            rail1.className = 'fence-rail fence-rail1';
+            fence.appendChild(rail1);
+            
+            const rail2 = document.createElement('div');
+            rail2.className = 'fence-rail fence-rail2';
+            fence.appendChild(rail2);
+        }
+
         // Проверка ориентации экрана
         function checkOrientation() {
             const rotateMessage = document.getElementById('rotateMessage');
             const gameContainer = document.getElementById('game-container');
             
             if (window.innerHeight > window.innerWidth) {
-                // Портретная ориентация
                 rotateMessage.classList.add('show');
                 gameContainer.style.display = 'none';
             } else {
-                // Ландшафтная ориентация
                 rotateMessage.classList.remove('show');
                 gameContainer.style.display = 'block';
             }
         }
 
-        // Проверка при загрузке и повороте
-        window.addEventListener('load', checkOrientation);
+        window.addEventListener('load', () => {
+            checkOrientation();
+            createFence();
+        });
         window.addEventListener('resize', checkOrientation);
         window.addEventListener('orientationchange', checkOrientation);
 
@@ -316,19 +472,15 @@
             { id: 'mouse', delay: 15000 }
         ];
 
-        // Показываем деда сразу
         document.getElementById('ded').classList.add('visible');
 
-        // Таймеры для остальных персонажей
         characters.forEach(char => {
             setTimeout(() => {
                 document.getElementById(char.id).classList.add('visible');
             }, char.delay);
         });
 
-        // Переход к следующей сцене
         function nextScene() {
-            // Анимация перехода
             const container = document.getElementById('game-container');
             container.style.transition = 'opacity 0.5s ease';
             container.style.opacity = '0';
@@ -336,8 +488,6 @@
             setTimeout(() => {
                 alert('Переход к следующей сцене!\nЗдесь будет продолжение сказки.');
                 container.style.opacity = '1';
-                // Здесь будет код перехода на следующую страницу
-                // window.location.href = 'scene2.html';
             }, 500);
         }
     </script>
